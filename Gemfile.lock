@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    portkey_parallax_header (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (11.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  portkey_parallax_header!
+  rake
+
+BUNDLED WITH
+   1.11.2
