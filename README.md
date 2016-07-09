@@ -30,14 +30,8 @@ add_portkey_parallax_with_view(view, height: height)
 
 # @param [UIView] view, the view being added
 # @param [Float] height, the height of the parallax header
-# @param [Boolean] shadow, whether to show a shadow along the bottom or not
-add_portkey_parallax_with_view(view, height: height, shadow: shadow)
-
-# @param [UIView] view, the view being added
-# @param [Float] height, the height of the parallax header
 # @param [Float] min_height, the minimum height of the header when scrolling up
-# @param [Boolean] shadow, whether to show a shadow along the bottom or not
-add_portkey_parallax_with_view(view, height: height, shadow: shadow, min_height: min_height)
+add_portkey_parallax_with_view(view, height: height, min_height: min_height)
 ```
 
 ## Development
@@ -54,4 +48,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/sight-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
