@@ -1,7 +1,7 @@
 module PortkeyParallaxHeader
   class HeaderView < UIView
     attr_accessor :state, :scroll_view, :custom_view, :parallax_height,
-      :parallax_min_height, :shadow_view, :is_observing, :content_offset_context
+      :parallax_min_height, :is_observing, :content_offset_context, :delegate
 
     def init_with_frame(frame, custom_view: view, scroll_view: scroll_view, height: height, min_height: min_height)
       self.initWithFrame(frame).tap do
@@ -78,6 +78,15 @@ module PortkeyParallaxHeader
         # Resize/reposition the parallaxView based on the content offset
         y_offset = content_offset.y * -1
         height   = [parallax_min_height, y_offset].max
+
+        max_height = parallax_height
+        min_height = parallax_min_height
+        progress   = (height - min_height).to_f / (max_height - min_height).to_f
+
+        if delegate && delegate.respond_to?('portkey_parallax_header:progress:')
+          delegate.portkey_parallax_header(WeakRef.new(self), progress: progress)
+        end
+
         self.setFrame(CGRectMake(0, content_offset.y, CGRectGetWidth(self.frame), height))
 
         # Correct the scroll indicator position

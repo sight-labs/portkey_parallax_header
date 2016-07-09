@@ -22,7 +22,7 @@ Or install it yourself as:
     $ gem install portkey_parallax_header
 
 ## API
-
+###Adding a Custom View
 ```ruby
 # @param [UIView] view, the view being added
 # @param [Float] height, the height of the parallax header
@@ -32,6 +32,15 @@ add_portkey_parallax_with_view(view, height: height)
 # @param [Float] height, the height of the parallax header
 # @param [Float] min_height, the minimum height of the header when scrolling up
 add_portkey_parallax_with_view(view, height: height, min_height: min_height)
+```
+
+###Delegate
+PortkeyParallaxHeader will notify you about the progress when scrolling up or down
+```ruby
+# @param [PortkeyParallaxHeader::HeaderView] parallax_header, the parallax header
+# @param [Float] progress, a float that repesents the progress when scrolling up or down,
+#                          float ranges from 0.0 - 1.0
+portkey_parallax_header(parallax_header, progress: progress)
 ```
 
 ## Development

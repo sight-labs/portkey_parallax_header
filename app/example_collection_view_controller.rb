@@ -4,6 +4,11 @@ class ExampleCollectionViewController < UIViewController
     self.view.addSubview(collection_view)
     register_cells
     collection_view.add_portkey_parallax_with_view(image_view, height: 320, min_height: 64)
+    collection_view.portkey_parallax_header_delegate = WeakRef.new(self)
+  end
+
+  def portkey_parallax_header(parallax_header, progress: progress)
+    NSLog("Progress = #{progress}")
   end
 
   def collectionView(view, numberOfItemsInSection: section)

@@ -32,6 +32,12 @@ class UIScrollView
     end
   end
 
+  def portkey_parallax_header_delegate= delegate
+
+    raise 'Add view to portkey_parallax_header before adding a delegate' unless portkey_parallax_header
+    portkey_parallax_header.delegate = delegate
+  end
+
   def didMoveToSuperview
     super
   end
