@@ -3,7 +3,7 @@
 This category makes it super easy to add a parallax header view to your scroll views.
 
 ## Demo
-
+![Alt Text](https://github.com/sight-labs/portkey_parallax_header/raw/master/example.gif)
 
 ## Installation
 
