@@ -1,8 +1,9 @@
 # PortkeyParallaxHeader
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/portkey_parallax_header`. To experiment with that code, run `bin/console` for an interactive prompt.
+This category makes it super easy to add a parallax header view to your scroll views.
 
-TODO: Delete this and the text above, and describe your gem
+## Demo
+
 
 ## Installation
 
@@ -20,9 +21,24 @@ Or install it yourself as:
 
     $ gem install portkey_parallax_header
 
-## Usage
+## API
 
-TODO: Write usage instructions here
+```ruby
+# @param [UIView] view, the view being added
+# @param [Float] height, the height of the parallax header
+add_portkey_parallax_with_view(view, height: height)
+
+# @param [UIView] view, the view being added
+# @param [Float] height, the height of the parallax header
+# @param [Boolean] shadow, whether to show a shadow along the bottom or not
+add_portkey_parallax_with_view(view, height: height, shadow: shadow)
+
+# @param [UIView] view, the view being added
+# @param [Float] height, the height of the parallax header
+# @param [Float] min_height, the minimum height of the header when scrolling up
+# @param [Boolean] shadow, whether to show a shadow along the bottom or not
+add_portkey_parallax_with_view(view, height: height, shadow: shadow, min_height: min_height)
+```
 
 ## Development
 
@@ -32,7 +48,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/portkey_parallax_header. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sight-labs/portkey_parallax_header. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
