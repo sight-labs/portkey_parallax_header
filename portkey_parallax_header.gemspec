@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Elom Gomez"]
   spec.email         = ["gomezelom@yahoo.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Category to add a parallax effect to UIScrollView/UITableView/UICollectionView.}
+  spec.description   = %q{Category to add a parallax effect to UIScrollView/UITableView/UICollectionView.}
+  spec.homepage      = "https://www.github.com/sight-labs/portkey_parallax_header"
   spec.license       = "MIT"
 
   files = []
