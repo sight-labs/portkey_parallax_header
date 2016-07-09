@@ -3,7 +3,7 @@ module PortkeyParallaxHeader
     attr_accessor :state, :scroll_view, :custom_view, :parallax_height,
       :parallax_min_height, :shadow_view, :is_observing, :content_offset_context
 
-    def init_with_frame(frame, custom_view: view, scroll_view: scroll_view, height: height, min_height: min_height, shadow: shadow)
+    def init_with_frame(frame, custom_view: view, scroll_view: scroll_view, height: height, min_height: min_height)
       self.initWithFrame(frame).tap do
         self.autoresizingMask    = UIViewAutoresizingFlexibleHeight
         self.clipsToBounds       = true
@@ -11,50 +11,6 @@ module PortkeyParallaxHeader
         self.parallax_height     = height
         self.parallax_min_height = min_height
         self.state               = :tracking_active
-
-        if shadow
-          # TODO: implement a drop shadow
-          # self.shadow_view = ShadowView.alloc.init
-          # self.addSubview(shadow_view)
-          # shadow_view.setTranslatesAutoresizingMaskIntoConstraints(false)
-          #
-          # self.addConstraint(
-          #   NSLayoutConstraint.constraintWithItem(
-          #     shadow_view,
-          #      attribute: NSLayoutAttributeWidth,
-          #      relatedBy: NSLayoutRelationEqual,
-          #         toItem: self,
-          #      attribute: NSLayoutAttributeWidth,
-          #     multiplier: 1,
-          #       constant: 0
-          #   )
-          # )
-          #
-          # self.addConstraint(
-          #   NSLayoutConstraint.constraintWithItem(
-          #     shadow_view,
-          #      attribute: NSLayoutAttributeHeight,
-          #      relatedBy: NSLayoutRelationEqual,
-          #         toItem: self,
-          #      attribute: NSLayoutAttributeHeight,
-          #     multiplier: 0,
-          #       constant: 10
-          #   )
-          # )
-          #
-          # self.addConstraint(
-          #   NSLayoutConstraint.constraintWithItem(
-          #     shadow_view,
-          #      attribute: NSLayoutAttributeTop,
-          #      relatedBy: NSLayoutRelationEqual,
-          #         toItem: self,
-          #      attribute: NSLayoutAttributeBottom,
-          #     multiplier: 1,
-          #       constant: 0
-          #   )
-          # )
-        end
-
         self.custom_view = view
         add_scroll_view_offset_observer
       end
@@ -83,12 +39,7 @@ module PortkeyParallaxHeader
       end
 
       @custom_view = view
-
-      if shadow_view
-        insertSubview(view, belowSubview: shadow_view)
-      else
-        addSubview(view)
-      end
+      addSubview(view)
 
       custom_view.setTranslatesAutoresizingMaskIntoConstraints(false)
       self.addConstraints(

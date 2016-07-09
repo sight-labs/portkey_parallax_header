@@ -2,7 +2,7 @@ class ExampleTableViewController < UIViewController
   def viewDidLoad
     super
     self.view.addSubview(table_view)
-    table_view.add_portkey_parallax_with_view(image_view, height: 320, shadow: false, min_height: 64)
+    table_view.add_portkey_parallax_with_view(image_view, height: 320, min_height: 64)
   end
 
   def tableView(table_view, numberOfRowsInSection: section)

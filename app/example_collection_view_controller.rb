@@ -3,7 +3,7 @@ class ExampleCollectionViewController < UIViewController
     super
     self.view.addSubview(collection_view)
     register_cells
-    collection_view.add_portkey_parallax_with_view(image_view, height: 320, shadow: true, min_height: 64)
+    collection_view.add_portkey_parallax_with_view(image_view, height: 320, min_height: 64)
   end
 
   def collectionView(view, numberOfItemsInSection: section)
