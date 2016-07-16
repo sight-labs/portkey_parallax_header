@@ -26,7 +26,7 @@ module PortkeyParallaxHeader
     end
 
     def willMoveToSuperview(new_superview)
-      if self.superview & new_superview.nil?
+      if self.superview && new_superview.nil?
         scroll_view = self.superview
         scroll_view.removeObserver(self, forKeyPath: 'contentOffset')
         @is_observing = false
