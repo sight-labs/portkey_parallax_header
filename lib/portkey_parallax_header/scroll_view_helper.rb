@@ -24,7 +24,7 @@ class UIScrollView
         min_height:  min_height
       )
       portkey_parallax_header.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight
-      portkey_parallax_header.backgroundColor = UIColor.blackColor
+      portkey_parallax_header.backgroundColor = UIColor.clearColor
       self.addSubview(portkey_parallax_header)
       new_inset           = self.contentInset
       new_inset.top       = height

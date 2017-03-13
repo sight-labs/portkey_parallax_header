@@ -1,17 +1,19 @@
 module PortkeyParallaxHeader
   class HeaderView < UIView
     attr_accessor :state, :scroll_view, :custom_view, :parallax_height,
-      :parallax_min_height, :is_observing, :content_offset_context, :delegate
+      :parallax_min_height, :is_observing, :content_offset_context, :delegate,
+      :shadow_height
 
     def init_with_frame(frame, custom_view: view, scroll_view: scroll_view, height: height, min_height: min_height)
       self.initWithFrame(frame).tap do
         self.autoresizingMask    = UIViewAutoresizingFlexibleHeight
         self.clipsToBounds       = true
         self.scroll_view         = scroll_view
-        self.parallax_height     = height
-        self.parallax_min_height = min_height
+        self.shadow_height       = min_height > 0 ? 4 : 0
+        self.parallax_height     = height + shadow_height
+        self.parallax_min_height = min_height + shadow_height
         self.state               = :tracking_active
-        self.custom_view = view
+        self.custom_view         = view
         add_scroll_view_offset_observer
       end
     end
@@ -42,12 +44,14 @@ module PortkeyParallaxHeader
       addSubview(view)
 
       custom_view.setTranslatesAutoresizingMaskIntoConstraints(false)
+      custom_view.layer.masksToBounds = true
+
       self.addConstraints(
         NSLayoutConstraint.constraintsWithVisualFormat(
-          'V:|[custom_view]|',
+          'V:|[custom_view][shadow(==height)]|',
           options: 0,
-          metrics: nil,
-          views: { 'custom_view' => custom_view }
+          metrics: { 'height' => shadow_height },
+          views: { 'custom_view' => custom_view, 'shadow' => shadow_view }
         )
       )
       self.addConstraints(
@@ -58,6 +62,22 @@ module PortkeyParallaxHeader
           views: { 'custom_view' => custom_view }
         )
       )
+
+      self.addConstraints(
+        NSLayoutConstraint.constraintsWithVisualFormat(
+          'H:|[shadow]|',
+          options: 0,
+          metrics: nil,
+          views: { 'shadow' => shadow_view }
+        )
+      )
+    end
+
+    def shadow_view
+      @shadow_view ||= PortkeyParallaxHeader::ShadowView.alloc.init.tap do |shadow|
+        shadow.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.addSubview(shadow)
+      end
     end
 
     def observeValueForKeyPath(key_path, ofObject: object, change: change, context: context)

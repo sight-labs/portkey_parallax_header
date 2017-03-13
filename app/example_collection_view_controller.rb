@@ -64,7 +64,7 @@ class ExampleCollectionViewController < UIViewController
       layout.scrollDirection         = UICollectionViewScrollDirectionVertical
       layout.minimumInteritemSpacing = 2.0
       layout.minimumLineSpacing      = 2.0
-      layout.sectionInset            = UIEdgeInsetsMake(4, 0, 4, 0)
+      layout.sectionInset            = UIEdgeInsetsMake(-2, 0, 4, 0)
     end
   end
 

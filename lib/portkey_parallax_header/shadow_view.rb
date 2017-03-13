@@ -3,6 +3,7 @@ module PortkeyParallaxHeader
     def initWithFrame(frame)
       super.tap do
         self.opaque = false
+        backgroundColor = UIColor.brownColor
       end
     end
 
@@ -13,26 +14,15 @@ module PortkeyParallaxHeader
 
       # Gradient Declarations
       colors = [
-        UIColor.colorWithWhite(0, alpha: 0.2).CGColor,
+        UIColor.blackColor.CGColor,
         UIColor.clearColor.CGColor
       ]
-      # colors = Pointer.new(type, 8)
-      # #start color => black color
-      # colors[0] = 0.0 #red
-      # colors[1] = 0.0 #green
-      # colors[2] = 0.0 #blue
-      # colors[3] = 0.2 #alpha
-      # #end color => clear color
-      # colors[4] = 0.0 #red
-      # colors[5] = 0.0 #green
-      # colors[6] = 0.0 #blue
-      # colors[7] = 0.0 #alpha
 
       num_locations = 2
       type = CGSize.type[/(f|d)/]
       locations = Pointer.new(type, 2)
-      locations[0] = 0.0
-      locations[1] =  1.0
+      locations[0] = 1.0
+      locations[1] =  0.0
 
       color_space = CGColorSpaceCreateDeviceRGB()
       color_gradient = CGGradientCreateWithColors(color_space, colors, locations)
