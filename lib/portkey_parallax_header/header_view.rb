@@ -4,12 +4,12 @@ module PortkeyParallaxHeader
       :parallax_min_height, :is_observing, :content_offset_context, :delegate,
       :shadow_height
 
-    def init_with_frame(frame, custom_view: view, scroll_view: scroll_view, height: height, min_height: min_height)
+    def init_with_frame(frame, custom_view: view, scroll_view: scroll_view, height: height, min_height: min_height, shadow_height: shadow_height)
       self.initWithFrame(frame).tap do
         self.autoresizingMask    = UIViewAutoresizingFlexibleHeight
         self.clipsToBounds       = true
         self.scroll_view         = scroll_view
-        self.shadow_height       = min_height > 0 ? 4 : 0
+        self.shadow_height       = shadow_height
         self.parallax_height     = height + shadow_height
         self.parallax_min_height = min_height + shadow_height
         self.state               = :tracking_active
